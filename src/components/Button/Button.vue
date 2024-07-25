@@ -1,5 +1,6 @@
 <template>
   <button
+    ref="_ref"
     class="vk-Button"
     :class = "{
       [`vk-button-${type}`]: type,
@@ -16,18 +17,22 @@
   </button>
 
 </template>
-<script lang="ts">
-  import { defineComponent } from 'vue';
-  export default defineComponent({
-    name: 'VButton'
-  })
-</script>
 
 <script setup lang="ts">
   // import { buttonProps } from './types'; 
   import type { ButtonProps } from './types';
+  import { ref } from 'vue'
   // defineProps(buttonProps)
-  defineProps<ButtonProps>()
+  defineOptions({
+    name: 'VButton', 
+  })
+  withDefaults(defineProps<ButtonProps>(),{
+    nativeType: 'button',
+  })
+  const _ref = ref<HTMLButtonElement>()
+  defineExpose({
+    ref: _ref,
+  })
 </script>
 
 <style>
