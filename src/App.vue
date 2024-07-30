@@ -2,7 +2,10 @@
   import VButton from './components/Button/Button.vue';
   import { onMounted, ref } from 'vue'
   import type { ButtonInstance } from './components/Button/types';
-  const buttonRef = ref<ButtonInstance | null>(null) 
+  const buttonRef = ref<ButtonInstance | null>(null)
+  const open = () => {
+    alert(123)
+  }
   onMounted(() => {
     if (buttonRef.value){
       console.log(buttonRef.value.ref)
@@ -17,11 +20,37 @@
   </header>
 
   <main>
-    <VButton ref="buttonRef" type="primary" size="large" plain>Test Button</VButton>
+    <VButton ref="buttonRef" class="attributs">Test Button</VButton>
+    <VButton plain @click="open">Plain Button</VButton>
+    <VButton round>Round Button</VButton>
+    <VButton circle>Circle Button</VButton>
+    <VButton disabled>Disabled Button</VButton>
+    <br><br>
+    <VButton type="primary">Primary Button</VButton>
+    <VButton type="success">Success Button</VButton>
+    <VButton type="info">Info Button</VButton>
+    <VButton type="warning">Warning Button</VButton>
+    <VButton type="danger">Danger Button</VButton>
+    <br><br>
+    <VButton type="primary" plain>Primary Button</VButton>
+    <VButton type="success" plain>Success Button</VButton>
+    <VButton type="info" plain>Info Button</VButton>
+    <VButton type="warning" plain>Warning Button</VButton>
+    <VButton type="danger" plain>Danger Button</VButton>
+    <br><br>
+    <VButton size="large">Large</VButton>
+    <VButton size="small">Small</VButton><br/><br/>
+
+    
+
+
+
+
   </main>
+
 </template>
 
-<style scoped>
+<style>
 header {
   line-height: 1.5;
 }

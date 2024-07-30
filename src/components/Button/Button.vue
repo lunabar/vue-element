@@ -1,12 +1,13 @@
 <template>
   <button
     ref="_ref"
-    class="vk-Button"
+    class="vk-button"
     :class = "{
-      [`vk-button-${type}`]: type,
-      [`vk-button-${size}`]: size,
+      [`vk-button--${type}`]: type,
+      [`vk-button--${size}`]: size,
       'is-plain': plain,
       'is-round': round,
+      'is-circle': circle,
       'is-disabled': disabled,
     }"
     :disabled="disabled"
@@ -23,7 +24,7 @@
 <script setup lang="ts">
   // import { buttonProps } from './types'; 
   import type { ButtonProps } from './types';
-  import { ref } from 'vue'
+  import { ref } from 'vue';
   // defineProps(buttonProps)
   defineOptions({
     name: 'VButton', 
