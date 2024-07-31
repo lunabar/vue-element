@@ -1,5 +1,7 @@
 <script setup lang="ts">
   import VButton from './components/Button/Button.vue';
+  import VCollapse from './components/Collapse/Collapse.vue';
+  import VCollapseItem from './components/Collapse/CollapseItem.vue'
   import { onMounted, ref } from 'vue'
   import type { ButtonInstance } from './components/Button/types';
   const buttonRef = ref<ButtonInstance | null>(null)
@@ -40,6 +42,22 @@
     <br><br>
     <VButton size="large">Large</VButton>
     <VButton size="small">Small</VButton><br/><br/>
+
+    <VCollapse>
+      <VCollapseItem name="a">
+        <template #title>
+          <h1>nice title</h1>
+        </template>
+        <h1>headline title</h1>
+        <div>this is content a aaa</div>
+      </VCollapseItem>  
+      <VCollapseItem name="b" title="nice title b item b">
+        <div>this is bbbbb test</div>
+      </VCollapseItem>
+      <VCollapseItem name="c" title="nice cccc" disabled>
+        <div>this is cccc test</div>
+      </VCollapseItem>
+    </VCollapse>
 
     
 
