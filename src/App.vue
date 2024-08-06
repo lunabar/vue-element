@@ -4,6 +4,7 @@
   import VCollapseItem from './components/Collapse/CollapseItem.vue'
   import { onMounted, ref } from 'vue'
   import type { ButtonInstance } from './components/Button/types';
+  const openedValue = ref(["a"])
   const buttonRef = ref<ButtonInstance | null>(null)
   const open = () => {
     alert(123)
@@ -12,7 +13,9 @@
     if (buttonRef.value){
       console.log(buttonRef.value.ref)
     }
-    
+    setTimeout(() => {
+      openedValue.value = ['a', 'b']
+    },2000)
   })
 </script>
 
@@ -43,7 +46,7 @@
     <VButton size="large">Large</VButton>
     <VButton size="small">Small</VButton><br/><br/>
 
-    <VCollapse>
+    <VCollapse v-model="openedValue">
       <VCollapseItem name="a">
         <template #title>
           <h1>nice title</h1>
@@ -58,7 +61,7 @@
         <div>this is cccc test</div>
       </VCollapseItem>
     </VCollapse>
-
+    {{ openedValue }}
     
 
 

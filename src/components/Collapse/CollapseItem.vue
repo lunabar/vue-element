@@ -27,7 +27,7 @@
     if (props.disabled) return;
     collapseContext?.handleItemClick(props.name)
   }
-  const isActive = computed(() => collapseContext?.activeName.value.includes(props.name))
+  const isActive = computed(() => collapseContext?.activeNames.value.includes(props.name))
   
 </script>
 
