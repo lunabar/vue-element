@@ -1,18 +1,23 @@
 <template>
   <div class="vk-collapse">
       <slot></slot>
+      <!-- {{ `activaNames:${activeNames}` }} -->
   </div>
 </template>
 
 <script setup lang="ts">
-  import { ref, provide, watch } from 'vue'
-  import type { NameType, CollapseProps, CollapseEmits } from './types';
+  import { provide } from 'vue';
+  // import { ref, watch} from 'vue';
+  import type { NameType, CollapseProps } from './types';
+  // import type { CollapseEmits } from './types';
+
   import { collapseKey } from './types';
   defineOptions({
     name: "VCollapse",
   })
   const props = defineProps<CollapseProps>()
   const activeNames = defineModel<NameType[]>({required: true})
+  // defineModel底层原理如下
   // const emits = defineEmits<CollapseEmits>()
   // const activeNames = ref<NameType[]>(props.modelValue)
   // watch(() => props.modelValue, () => {

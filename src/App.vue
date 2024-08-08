@@ -46,7 +46,7 @@
     <VButton size="large">Large</VButton>
     <VButton size="small">Small</VButton><br/><br/>
 
-    <VCollapse v-model="openedValue">
+    <VCollapse accordion v-model="openedValue">
       <VCollapseItem name="a">
         <template #title>
           <h1>nice title</h1>
